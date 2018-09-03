@@ -14,6 +14,8 @@ ADD web /var/www/html/
 # Expose ports
 EXPOSE 8000
 
-#CMD exec nginx -g 'daemon off;'
-#CMD /bin/bash -c "envsubst < /etc/nginx/nginx.conf > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"
-CMD /bin/bash -c "exec nginx -g 'daemon off;' || cat /etc/nginx/nginx.conf"
+#This doesn't works
+CMD /bin/bash -c "envsubst < /etc/nginx/nginx.conf > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"
+
+#This works fine
+#CMD /bin/bash -c "exec nginx -g 'daemon off;' || cat /etc/nginx/nginx.conf"
